@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- start style css -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- end style css -->
+    <!--Bootsrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>Drugs Calculation</title>
+  </head>
+  <!-- heparin -->
+  <body>
+    <div class="px-3 mt-3">
+      <br />
+
+      <!-- my modal contoh -->
+      <div
+        class="modal fade"
+        id="exampleModalHeparin"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-cente red modal-dialog-scrollable"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title" id="exampleModalLabel">Heparin</h6>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <!-- img -->
+              <img
+                src="/img/Listrik (4).png"
+                class="w-25 d-flex mx-auto text-center"
+                alt="..."
+              />
+              <!-- img -->
+              <h1 class="mx-auto fs-6">Apa itu Heparin ?</h1>
+              <p class="mx-1 my-font justify-content-between">
+                Heparin adalah obat untuk mengatasi dan mencegah penggumpalan
+                darah yang berisiko menyumbat pembuluh darah.
+              </p>
+
+              <h1 class="mx-auto fs-6">Indikasi</h1>
+              <p class="my-font">PAD, UAP, trombolisis vena</p>
+              <hr />
+
+              <h1 class="mx-auto fs-6">Dosis (Dewasa)</h1>
+              <p class="my-font">
+                4000-5000 unit IV loading dose diikuti dengan IV drip <br />
+                1000-2000 unit/jam
+              </p>
+
+              <hr />
+              <h1 class="mx-auto fs-6">Contoh</h1>
+              <p class="my-font">
+                Dosis yang di minta : 500 unit/jam<br />
+                <!-- Berat badan : 60 kg <br /> -->
+                Heparin 25.000 unit di dilut dengan D5% atau Nacl 0.9% menjadi
+                50 ml <br />
+                sediaan 1 ampul : 25.000 unit/5 ml <br />
+                Konsentrasi : 25.000 unit : 50 ml = 500 unit/ml
+              </p>
+              <hr />
+              <h1 class="mx-auto fs-6">Rumus</h1>
+              <b class="my-font"
+                >Dosis diminta (unit) x berapa jam / Konsentrasi
+              </b>
+              <hr />
+              <h1 class="mx-auto fs-6">Hasil</h1>
+              <p class="my-font mb-4">
+                500 unit x jam / 500 unit/ml = 1 ml/jam
+              </p>
+
+              <hr />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- my modal contoh -->
+    </div>
+
+    <!-- form input -->
+    <h6 class="modal-title mx-4 mb-2 fs-4" id="exampleModalLabel">
+      Heparin 25.000/ 5 ml
+    </h6>
+    <form
+      onsubmit="return hitungHeparin(event);"
+      class="border px-4 rounded mx-4"
+    >
+      <div class="text-end">
+        <button
+          type="button"
+          class="my-btn btn btn-warning opacity-75"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModalHeparin"
+        >
+          Lihat contoh
+        </button>
+      </div>
+      <div class="mb-3">
+        <label for="sediaanHeparin" class="form-label">Dosis sediaan</label>
+        <br />
+        <input
+          type="number"
+          id="sediaanHeparin"
+          name="sediaan"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="dilutanHeparin" class="form-label"
+          >Pendilut/Pengencer</label
+        >
+        <input
+          type="number"
+          id="dilutanHeparin"
+          class="form-control"
+          name="pendilut"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="beratBadanHeparin" class="form-label"
+          >Berat badan (kg)</label
+        >
+        <input
+          type="number"
+          id="beratBadanHeparin"
+          class="form-control"
+          name="berat_badan"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="waktuHeparin" class="form-label">Jam Pemberian</label>
+        <input
+          type="number"
+          id="waktuHeparin"
+          class="form-control"
+          name="waktuHeparin"
+          required
+        />
+      </div>
+
+      <button onclick="hitungHeparin(event)" class="submit mt-3" type="submit">
+        Hitung
+      </button>
+    </form>
+    <!-- form input -->
+
+    <!-- Modal hasil -->
+    <div
+      class="modal fade"
+      id="exampleModalHeparinHasil"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- tabel hasil -->
+            <table>
+              <!-- table head -->
+              <tr>
+                <th>Dosis obat</th>
+                <th>Hasil</th>
+              </tr>
+              <!-- table head -->
+              <tbody class="px-5" id="hasilTableHeparin"></tbody>
+            </table>
+            <!-- tabel hasil -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal hasil -->
+
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script> -->
+    <!-- local js -->
+    <!-- <script src="main.js"></script> -->
+    <!-- js -->
+  </body>
+  <!-- dobutamin -->
+</html>

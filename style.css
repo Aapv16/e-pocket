@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* #hero {
+  min-height: 100vh;
+} */
+
+.mybg {
+  background-color:;
+}
+
+.my-font {
+  font-size: 12px;
+}
+
+.my-color {
+  color: #5e17eb;
+
+  font-size: larger;
+  font-weight: 900;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.my-intro {
+  display: flex;
+  justify-content: center;
+  margin-left: 9rem;
+  margin-top: -3rem;
+}
+
+.container {
+  margin: 1rem 1rem;
+  outline: none;
+  border: none;
+}
+
+form {
+  padding: 20px;
+  background-color: rgb(230, 254, 246);
+}
+
+label {
+  display: block;
+  /* background-color: #dddddd; */
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.submit {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  background-color: #4caf50;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px 3rem;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

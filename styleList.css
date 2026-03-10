@@ -1,0 +1,15 @@
+#tugas {
+  background-color: rgb(227, 227, 227);
+}
+
+.tugas-saya {
+  padding: 0rem, 1rem;
+  background-color: blue;
+}
+
+.btn-input {
+  position: fixed;
+  margin-left: 9rem;
+  border-radius: 3px;
+  background-color: chartreuse;
+}
