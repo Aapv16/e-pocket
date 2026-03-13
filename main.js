@@ -232,24 +232,27 @@ function hitung4(event) {
 // punya Heparin
 function hitungHeparin(event) {
   event.preventDefault();
-  let listMcg = [12, 15, 18, 60, 70, 80, 90, 100, 200, 300, 500];
+  let listMcg = [
+    10, 12, 14, 16, 18, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 500,
+  ];
   let sedian = parseFloat(document.getElementById("sediaanHeparin").value);
   let pendilut = parseFloat(document.getElementById("dilutanHeparin").value);
   let beratBadan = parseFloat(
     document.getElementById("beratBadanHeparin").value,
   );
-  let waktu = parseFloat(document.getElementById("waktuHeparin").value);
+  // let waktu = parseFloat(document.getElementById("waktuHeparin").value);
   let modal = new bootstrap.Modal(
     document.getElementById("exampleModalHeparinHasil"),
   );
 
-  if (!sedian || !beratBadan || !pendilut || !waktu === 0) {
+  if (!sedian || !beratBadan || !pendilut === 0) {
     alert("tidak valid oke heparin");
     return;
   }
   modal.show();
 
   let konsentrat = sedian / pendilut;
+  // alert(konsentrat);
 
   let tbody = document.getElementById("hasilTableHeparin"); // Bayangkan kamu mengambil buku kosong untuk menulis hasil.
 
@@ -262,13 +265,13 @@ function hitungHeparin(event) {
 
   for (let i = 0; i < listMcg.length; i++) {
     let dosis = listMcg[i];
-    let Jumlah = (dosis * beratBadan * waktu) / konsentrat;
+    let Jumlah = (dosis * beratBadan) / konsentrat;
     console.log(Jumlah);
     let tr = document.createElement("tr"); // kita buat baris baru dulu 🔽 // tr itu = Kamu ambil satu baris kosong di buku.
 
     // Buat kolom pertama dan isi dengan dosis. 🔽
     let td1 = document.createElement("td");
-    td1.textContent = dosis + " mcg";
+    td1.textContent = dosis + " unit";
     // Buat kolom pertama dan isi dengan dosis. 👆
 
     // Buat kolom kedua dan isi dengan jumlah hasil. 🔽
