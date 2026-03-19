@@ -240,19 +240,18 @@ function hitungHeparin(event) {
   let beratBadan = parseFloat(
     document.getElementById("beratBadanHeparin").value,
   );
-  let waktu = parseFloat(document.getElementById("waktuLidocain").value);
+  // let waktu = parseFloat(document.getElementById("waktuHeparin").value);
   let modal = new bootstrap.Modal(
     document.getElementById("exampleModalHeparinHasil"),
   );
 
-  if (!sedian || !waktu || !pendilut === 0) {
-    alert("tidak valid oke heparin");
+  if (!beratBadan || !pendilut === 0) {
+    alert("di isi dulu ya nurse,.✌️");
     return;
   }
   modal.show();
 
   let konsentrat = sedian / pendilut;
-  // alert(konsentrat);
 
   let tbody = document.getElementById("hasilTableHeparin"); // Bayangkan kamu mengambil buku kosong untuk menulis hasil.
 
@@ -266,7 +265,7 @@ function hitungHeparin(event) {
   for (let i = 0; i < listMcg.length; i++) {
     let dosis = listMcg[i];
     let Jumlah = (dosis * beratBadan) / konsentrat;
-    console.log(Jumlah);
+    // alert(dosis + "*" + beratBadan + "/" + konsentrat);
     let tr = document.createElement("tr"); // kita buat baris baru dulu 🔽 // tr itu = Kamu ambil satu baris kosong di buku.
 
     // Buat kolom pertama dan isi dengan dosis. 🔽
