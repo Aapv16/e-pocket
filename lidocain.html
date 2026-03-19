@@ -22,7 +22,7 @@
     <!-- home page -->
 
     <div class="accordion px-3 mt-5" id="accordionExample">
-      <!-- part 1 -->
+      <!-- part 1 copy dari sini👇 -->
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button
@@ -33,7 +33,7 @@
             aria-expanded="true"
             aria-controls="collapseLido"
           >
-            Norepinephrine/Noradrenaline
+            Lidocaine
           </button>
         </h2>
         <div
@@ -66,11 +66,11 @@
 
                   <div class="modal-body">
                     <!-- img -->
-                    <img
+                    <!-- <img
                       src="img/3.png"
                       class="w-75 border rounded d-flex mx-auto text-center"
                       alt="..."
-                    />
+                    /> -->
                     <!-- img -->
                     <h1 class="mx-auto fs-6">Apa itu Lidocain ?</h1>
                     <p class="mx-1 my-font justify-content-between">
@@ -123,7 +123,7 @@
                     <h1 class="mx-auto fs-6">Hasil</h1>
                     <p class="my-font mb-4">
                       2 mg x 60 menit : 400 mg = 0.3 mg/jam <br />
-                      0.3 x pelarut = 6 ml/jam
+                      0.3 x 20 ml = 6 ml/jam
                     </p>
 
                     <hr />
@@ -146,7 +146,7 @@
           <!-- form input -->
 
           <form
-            onsubmit="return hitung(event);"
+            onsubmit="return hitungLidocaine(event);"
             class="border rounded mb-3 mx-4"
           >
             <div class="text-end">
@@ -159,30 +159,49 @@
                 Lihat Contoh
               </btn>
             </div>
+
+            <div class="mb-3">
+              <label for="diminta" class="form-label">Dosis yang diminta</label>
+              <br />
+              <input
+                type="number"
+                id="dimintalidocaine"
+                name="sediaan"
+                placeholder="mg"
+                class="form-control"
+                required
+              />
+            </div>
             <div class="mb-3">
               <label for="sedian" class="form-label"
                 >Dosis sediaan dalam 1 ampul</label
               >
               <br />
               <input
-                type="number"
-                id="sediaan"
+                type="text"
+                value="40 mg"
+                disabled
+                id="sediaanlidocaine"
                 name="sediaan"
+                placeholder="40 mg"
                 class="form-control"
                 required
               />
             </div>
             <div class="mb-3">
-              <label for="dilutan" class="form-label">Pendilut/Pengencer</label>
+              <label for="dilutan" class="form-label">
+                Berapa jumlah ampul ?</label
+              >
               <input
                 type="number"
-                id="dilutan"
+                id="dilutlidocaine"
                 class="form-control"
                 name="pendilut"
+                placeholder="ampul"
                 required
               />
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="berat_badan" class="form-label"
                 >Berat badan (kg)</label
               >
@@ -193,20 +212,23 @@
                 name="berat_badan"
                 required
               />
-            </div>
+            </div> -->
             <div class="mb-3">
               <label for="waktu" class="form-label">Waktu</label>
               <input
-                type="number"
-                id="waktu"
+                type="text"
+                value="60 menit"
+                disabled
+                id="waktuLidocaine"
                 class="form-control"
                 name="waktu"
+                placeholder="60 menit"
                 required
               />
             </div>
 
             <button
-              onclick="cekInput(event)"
+              onclick="hitungLidocaine(event)"
               data-bs-toggle="modal"
               class="submit mt-3"
               type="submit"
@@ -219,15 +241,17 @@
           <!-- Modal hasil -->
           <div
             class="modal fade"
-            id="exampleModalHasilVascon"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
+            id="exampleModalHasilLidocaine"
             aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1"
           >
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Hasil</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                    Hasil
+                  </h1>
                   <button
                     type="button"
                     class="btn-close"
@@ -236,36 +260,68 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <!-- tabel hasil -->
+                  <p class="px-1 my-font mx-auto" id="hasilAwal"></p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-primary"
+                    data-bs-target="#exampleModalToggle2"
+                    data-bs-toggle="modal"
+                  >
+                    Lihat titrasi ➡️
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal fade"
+            id="exampleModalToggle2"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                    Table Dosis
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
                   <table>
                     <!-- table head -->
                     <tr>
-                      <th>Dosis obat</th>
+                      <th>Dosis diminta</th>
                       <th>Hasil</th>
                     </tr>
                     <!-- table head -->
                     <tbody class="px-5" id="hasilTable"></tbody>
                   </table>
-                  <!-- tabel hasil -->
                 </div>
                 <div class="modal-footer">
                   <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
+                    class="btn btn-primary"
+                    data-bs-target="#exampleModalHasilLidocaine"
+                    data-bs-toggle="modal"
                   >
-                    Close
+                    Back to first
                   </button>
-                  <!-- <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button> -->
                 </div>
               </div>
             </div>
           </div>
+
           <!-- modal hasil -->
         </div>
       </div>
+      <!-- part 1 batas copy 👆 -->
     </div>
 
     <!-- home page -->

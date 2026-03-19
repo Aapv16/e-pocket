@@ -240,12 +240,12 @@ function hitungHeparin(event) {
   let beratBadan = parseFloat(
     document.getElementById("beratBadanHeparin").value,
   );
-  // let waktu = parseFloat(document.getElementById("waktuHeparin").value);
+  let waktu = parseFloat(document.getElementById("waktuLidocain").value);
   let modal = new bootstrap.Modal(
     document.getElementById("exampleModalHeparinHasil"),
   );
 
-  if (!sedian || !beratBadan || !pendilut === 0) {
+  if (!sedian || !waktu || !pendilut === 0) {
     alert("tidak valid oke heparin");
     return;
   }
@@ -293,7 +293,96 @@ function hitungHeparin(event) {
   }
   return false;
 }
-// punya NTG
+// punya lidocaine ⭐
+function hitungLidocaine(event) {
+  event.preventDefault();
+  let listMcg = [2, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20];
+  let diminta = parseFloat(document.getElementById("dimintalidocaine").value);
+  let sedian = parseFloat(document.getElementById("sediaanlidocaine").value);
+  let pendilut = parseFloat(document.getElementById("dilutlidocaine").value);
+  let volume = parseFloat(document.getElementById("dilutlidocaine").value) * 2;
+  let waktu = parseFloat(document.getElementById("waktuLidocaine").value);
+  let modal = new bootstrap.Modal(
+    document.getElementById("exampleModalHasilLidocaine"),
+  );
+
+  if (!sedian || !diminta || !waktu || !pendilut === 0) {
+    alert("di isi dulu ya nurse,.✌️");
+    return;
+  }
+  modal.show();
+
+  let konsentrat = sedian * pendilut;
+  // alert(konsentrat);
+  let tpaper = document.getElementById("hasilAwal");
+  tpaper.innerHTML = "";
+
+  let paraf = document.createElement("p");
+  paraf.innerHTML =
+    " Dosis diminta (" +
+    diminta +
+    ")" +
+    " mg * " +
+    " Waktu (" +
+    waktu +
+    ")" +
+    " menit" +
+    " / " +
+    " jumlah dosis " +
+    "(" +
+    konsentrat +
+    ")" +
+    " mg" +
+    " * " +
+    " pengencer (" +
+    volume +
+    ")" +
+    " ml" +
+    " ➡️ Hasil = " +
+    ((diminta * waktu) / konsentrat) * volume +
+    " ml";
+
+  tpaper.appendChild(paraf);
+
+  let tbody = document.getElementById("hasilTableLidocaine"); // Bayangkan kamu mengambil buku kosong untuk menulis hasil.
+  tbody.innerHTML = ""; // Mengosongkan isi tabel.➡️ Kalau tidak:  Data akan dobel ➡️Tabel makin panjang tiap klik
+
+  //paham ini dulu ⚡
+  // tr = table row (baris) ➡️ baris horizontal | 0.05 | 3.60 |
+  // td= table data (kolom) ➡️ kotak kecil di dalam baris itu. | kotak | kotak |
+  // appendChild() = Menambahkan elemen sebagai anak (child) ke dalam elemen lain. ➡️Menempelkan ke tempatnya
+
+  for (let i = 0; i < listMcg.length; i++) {
+    let dosis = listMcg[i];
+    let Jumlah = ((dosis * waktu) / konsentrat) * volume;
+    // console.log(Jumlah);
+    let tr = document.createElement("tr"); // kita buat baris baru dulu 🔽 // tr itu = Kamu ambil satu baris kosong di buku.
+
+    // Buat kolom pertama dan isi dengan dosis. 🔽
+    let td1 = document.createElement("td");
+    td1.textContent = dosis + " mg";
+    // Buat kolom pertama dan isi dengan dosis. 👆
+
+    // Buat kolom kedua dan isi dengan jumlah hasil. 🔽
+    let td2 = document.createElement("td");
+    td2.textContent = Jumlah.toFixed(0) + " ml";
+    // Buat kolom kedua dan isi dengan jumlah hasil. 👆
+
+    // Gabungkan tulisan dosis dan laju dalam satu baris yang sama. 🔽
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    // Gabungkan tulisan dosis dan laju dalam satu baris yang sama.👆
+
+    // Tempel baris itu ke buku laporan.
+    tbody.appendChild(tr);
+
+    // Tempel baris itu ke buku laporan.
+
+    // console.log(Jumlah);
+  }
+  return false;
+}
+// punya lidocaine ⭐
 
 function tambahTugas() {
   let input = document.getElementById("inputTugas");
@@ -316,4 +405,15 @@ function tambahTugas() {
 
 function clearJob(tombol) {
   tombol.parentElement.remove();
+}
+
+function alur(event) {
+  let input = prompt("ada gel P?");
+  let input2 = confirm("berapa jarak interval?");
+
+  if (input == "") {
+    alert("jangan kosong");
+  } else {
+    input2;
+  }
 }

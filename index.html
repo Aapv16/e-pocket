@@ -1185,7 +1185,306 @@
           <!-- hasil heparin -->
         </div>
       </div>
-      <!-- part 6 -->
+      <!-- 6 -->
+      <div class="accordion-item" id="accordionExample">
+        <!-- part 1 -->
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseLido"
+            aria-expanded="true"
+            aria-controls="collapseLido"
+          >
+            Lidocaine
+          </button>
+        </h2>
+        <div
+          id="collapseLido"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="mt-3">
+            <!-- my modal contoh -->
+            <div
+              class="modal fade"
+              id="exampleLidocain"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Lidocain</h6>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <div class="modal-body">
+                    <!-- img -->
+                    <img
+                      src="img/Lidocaine.png"
+                      class="w-75 border rounded d-flex mx-auto text-center"
+                      alt="..."
+                    />
+                    <!-- img -->
+                    <h1 class="mx-auto fs-6">Apa itu Lidocain ?</h1>
+                    <p class="mx-1 my-font justify-content-between">
+                      Lidocaine adalah obat bius lokal untuk menghilangkan rasa
+                      sakit atau memberi efek mati rasa pada bagian tubuh
+                      tertentu. Obat ini bisa pula digunakan untuk mengatasi
+                      gangguan irama jantung sehingga dapat juga digolongkan
+                      sebagai obat antiaritmia.
+                    </p>
+
+                    <h1 class="mx-auto fs-6">Indikasi</h1>
+                    <p class="my-font">Aritmia, Prosedur Anastesi</p>
+                    <hr />
+
+                    <h1 class="mx-auto fs-6">Dosis Dewasa untuk Aritmia</h1>
+                    <p class="my-font">
+                      ◉ 1 sampai 1,5 mg/kg/dosis intravena (IV) diberikan
+                      setelah 2 sampai 3 menit.
+                      <br />
+
+                      ◉ dapat diberikan ulang 0,5 sampai 0,75 mg/kg/dosis IV
+                      Lebih dari 2 sampai 3 menit dalam jangka waktu 5 sampai 10
+                      menit dengan total 3 mg/kg.
+                      <br />
+                      ◉ IV lanjutan: 1 sampai 4 mg/menit
+                    </p>
+                    <h1 class="mx-auto fs-6">Dosis Dewasa untuk VF VT</h1>
+                    <p class="my-font">
+                      ◉ Dosis awal 1 sampai 1,5 mg/kg/dosis IV <br />
+                      ◉ Dapat diulangi 0,5 sampai 0, 75mg/kg dosis dengan jarak
+                      waktu 5 sampai 10 menit ; total dosis maksimal 3 mg/kg
+                    </p>
+
+                    <hr />
+                    <h1 class="mx-auto fs-6">Contoh</h1>
+                    <p class="my-font">
+                      Dosis yang: Dibutuhkan Lidocain 1 mg/menit<br />
+                      <!-- Berat badan : 60 kg <br /> -->
+                      <!-- Dilut dengan : D5% menjadi 50 ml <br /> -->
+                      sediaan 1 ampul : 2% / 2 ml = 40 mg/2 ml <br />
+                      <!-- Konsentrasi : 4mg x 1000 mcg : 50 ml = 80 mcg/ml -->
+                    </p>
+                    <hr />
+                    <h1 class="mx-auto fs-6">Rumus</h1>
+                    <b class="my-font"
+                      >Dosis permintaan (mg) x 60 menit / jumlah dosis sedian
+                      (mg) x pelarut (ml)
+                    </b>
+                    <hr />
+                    <h1 class="mx-auto fs-6">Hasil</h1>
+                    <p class="my-font mb-4">
+                      2 mg x 60 menit : 400 mg = 0.3 mg/jam <br />
+                      0.3 x 20 ml = 6 ml/jam
+                    </p>
+
+                    <hr />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- my modal contoh -->
+          </div>
+
+          <!-- form input -->
+          <form
+            onsubmit="return hitungLidocaine(event);"
+            class="border rounded mb-3 mx-4"
+          >
+            <div class="text-end">
+              <btn
+                type="button"
+                class="my-btn btn btn-warning opacity-75"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleLidocain"
+              >
+                Lihat Contoh
+              </btn>
+            </div>
+
+            <div class="mb-3">
+              <label for="diminta" class="form-label">Dosis yang diminta</label>
+              <br />
+              <input
+                type="number"
+                id="dimintalidocaine"
+                name="sediaan"
+                placeholder="mg"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="sedian" class="form-label"
+                >Dosis sediaan dalam 1 ampul</label
+              >
+              <br />
+              <input
+                type="text"
+                value="40 mg"
+                disabled
+                id="sediaanlidocaine"
+                name="sediaan"
+                placeholder="40 mg"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dilutan" class="form-label">
+                Berapa jumlah ampul ?</label
+              >
+              <input
+                type="number"
+                id="dilutlidocaine"
+                class="form-control"
+                name="pendilut"
+                placeholder="ampul"
+                required
+              />
+            </div>
+            <!-- <div class="mb-3">
+              <label for="berat_badan" class="form-label"
+                >Berat badan (kg)</label
+              >
+              <input
+                type="number"
+                id="berat_badan"
+                class="form-control"
+                name="berat_badan"
+                required
+              />
+            </div> -->
+            <div class="mb-3">
+              <label for="waktu" class="form-label">Waktu</label>
+              <input
+                type="text"
+                value="60 menit"
+                disabled
+                id="waktuLidocaine"
+                class="form-control"
+                name="waktu"
+                placeholder="60 menit"
+                required
+              />
+            </div>
+
+            <button
+              onclick="hitungLidocaine(event)"
+              data-bs-toggle="modal"
+              class="submit mt-3"
+              type="submit"
+            >
+              Hitung
+            </button>
+          </form>
+          <!-- form input -->
+
+          <!-- Modal hasil -->
+          <div
+            class="modal fade"
+            id="exampleModalHasilLidocaine"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                    Hasil
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p class="px-1 my-font mx-auto" id="hasilAwal"></p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-primary"
+                    data-bs-target="#exampleModalToggle2"
+                    data-bs-toggle="modal"
+                  >
+                    Lihat titrasi ➡️
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal fade"
+            id="exampleModalToggle2"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                    Table Dosis
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <table>
+                    <!-- table head -->
+                    <tr>
+                      <th>Dosis diminta</th>
+                      <th>Hasil</th>
+                    </tr>
+                    <!-- table head -->
+                    <tbody class="px-5" id="hasilTableLidocaine"></tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-primary"
+                    data-bs-target="#exampleModalHasilLidocaine"
+                    data-bs-toggle="modal"
+                  >
+                    Back to first
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal hasil -->
+        </div>
+      </div>
+      <!-- part 7 -->
       <div class="accordion-item opacity-50">
         <h2 class="accordion-header">
           <button
@@ -1200,7 +1499,7 @@
           </button>
         </h2>
       </div>
-      <!-- part 7 -->
+      <!-- part 8 -->
       <div class="accordion-item opacity-50">
         <h2 class="accordion-header">
           <button
