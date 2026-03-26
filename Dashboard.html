@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="navbar">E-pocket</div>
+    <div class="container">
+      <!-- bannerku -->
+      <div class="banner">
+        <img src="https://picsum.photos/400/200" alt="" />
+      </div>
+      <!-- kategori item ku -->
+      <div class="category">
+        <!-- “Saat diklik → jalankan fungsi filterMenu ➡️ dengan info: kategori = makanan dan tombol yang diklik = ini” -->
+        <button onclick="filterItemKu('all', this)" class="active">
+          semua item
+        </button>
+        <button onclick="filterItemKu('obat', this)" class="active">
+          Obat
+        </button>
+        <button onclick="filterItemKu('ekg', this)" class="active">
+          intepretasi EKG
+        </button>
+        <button onclick="filterItemKu('agd', this)" class="active">
+          Intepretasi AGD
+        </button>
+        <button onclick="filterItemKu('btcls', this)" class="active">
+          BTCL
+        </button>
+        <button onclick="filterItemKu('acls', this)" class="active">
+          ACLS
+        </button>
+      </div>
+      <!-- kategori item ku -->
+
+      <!-- GRID ITEM ku -->
+      <div class="grid">
+        <div class="item" data-kategori="obat">⚡</div>
+        <div class="item" data-kategori="obat">🔽</div>
+
+        <div class="item" data-kategori="ekg">🚀</div>
+        <div class="item" data-kategori="ekg">⭐</div>
+
+        <div class="item" data-kategori="agd">😇</div>
+        <div class="item" data-kategori="agd">🎬</div>
+
+        <div class="item" data-kategori="btcls">😇</div>
+        <div class="item" data-kategori="btcls">🎬</div>
+
+        <div class="item" data-kategori="acls">😇</div>
+        <div class="item" data-kategori="acls">🎬</div>
+      </div>
+      <!-- GRID ITEM ku -->
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

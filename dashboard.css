@@ -1,0 +1,162 @@
+:root {
+  --primaryTextColor: #151414; /*Untuk title atau judul */
+  --secondaryTextColor: #444442; /*Untuk teks biasa seperti paragraf contohnya */
+
+  --borderColor: #f20000;
+  --lineColor: #f00000; /*Untuk line di pre-tittle */
+
+  --primaryBackgroundColor: #fff;
+  --secondaryBackgroundColor: #f7f4f4;
+  --thirdBackgroundColor: #fbfbfb;
+
+  --btnColor: #ffa200;
+
+  --primaryIconColor: #60b1ef;
+  --secondaryIconColor: #549dd4;
+
+  --sectionPadding: 6rem 0;
+
+  --itemBorderRadius: 0.7rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+body {
+  background-color: var(--primaryBackgroundColor);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  background: #5d3cff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.container {
+  padding: 30px;
+}
+
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.banner h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+}
+
+.search-box {
+  margin: 20px 0;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #ddff00;
+  font-size: 16px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.menu-item {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu-item:hover {
+  background: #2f80ed;
+  color: white;
+}
+
+/* new idea */
+/* CATEGORY BUTTON */
+.category {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.category button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: #ddd;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* road to JS filter */
+.category button.active {
+  background: #2f80ed;
+  color: white;
+  border: 3px solid yellow;
+}
+/* road to JS menu Humburger */
+.nav-link.active {
+  font-weight: 700;
+  /* background-color: #4352da; */
+  color: #091f81 !important;
+  border-bottom: 1px solid rgba(88, 88, 88, 0.184);
+}
+
+/* GRID MENU */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.item {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+/* laptop */
+@media screen and (min-width: 450px) {
+  body {
+    display: none;
+  }
+}
+
+/*hp */
+@media screen and (max-width: 450px) {
+  html {
+    height: 80vh;
+  }
+  #offcanvasNavbar .offcanvas-body .nav-link {
+    visibility: visible;
+    color: var(--secondaryTextColor);
+    width: 15rem;
+    border-bottom: 1px solid var(--secondaryTextColor);
+  }
+}

@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 function cekInput(event) {
   event.preventDefault();
   let listMcg = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5];
@@ -383,36 +385,209 @@ function hitungLidocaine(event) {
 }
 // punya lidocaine ⭐
 
-function tambahTugas() {
-  let input = document.getElementById("inputTugas");
-  let daftarTugas = document.getElementById("tugas");
+// punya Cordaron ⭐
+function hitungCordaron(event) {
+  event.preventDefault();
+  let diminta = parseFloat(document.getElementById("dimintaCordaron").value);
+  let sedian = parseFloat(document.getElementById("sediaanCordaron").value);
+  // let pendilut = parseFloat(document.getElementById("dilutCordaron").value);
+  // let volume = parseFloat(document.getElementById("dilutCordaron").value);
+  let waktu = parseFloat(document.getElementById("waktuCordaron").value);
+  let totalWaktu = parseFloat(
+    document.getElementById("totalJamPermintaan").value,
+  );
+  let modal = new bootstrap.Modal(
+    document.getElementById("exampleModalHasilCordaron"),
+  );
 
-  if (input.value === "") {
-    alert("isi dulu tugasnya");
+  if (!sedian || !diminta || !waktu || !totalWaktu === 0) {
+    alert("di isi dulu ya nurse,.✌️");
     return;
   }
+  modal.show();
 
-  let li = document.createElement("li");
+  const totalDosisCordaron = diminta * waktu * totalWaktu;
+  const hasilBagi = (totalDosisCordaron / sedian) * 3;
+  const hasil = hasilCordaron(hasilBagi, 3);
 
-  li.innerHTML = `<span class="tugas-saya">${input.value}</span>
-  <button class="btn-input " onclick ="clearJob(this)" > hapus </button>
-  `;
-  daftarTugas.appendChild(li);
+  function hasilCordaron(hasilBagi, sedian) {
+    const vialPenuh = Math.floor(totalDosisCordaron / 150);
+    const sisaMl = hasilBagi % sedian;
 
-  input.value = "";
-}
-
-function clearJob(tombol) {
-  tombol.parentElement.remove();
-}
-
-function alur(event) {
-  let input = prompt("ada gel P?");
-  let input2 = confirm("berapa jarak interval?");
-
-  if (input == "") {
-    alert("jangan kosong");
-  } else {
-    input2;
+    return {
+      sisaMl,
+      vialPenuh,
+    };
   }
+
+  // console.log(totalDosisCordaron);
+
+  let papan = document.getElementById("papan");
+  papan.innerHTML = "";
+  let pesan = document.createElement("p");
+  pesan.innerHTML = "Dosis terlalu pekat pelarut > 50 ml atau bagi 2";
+  //......
+  let info = document.getElementById("infoKu");
+  info.innerHTML = "";
+
+  infoPesan = document.createElement("p");
+  infoPesan.innerHTML = "💡 1 vial = 150 mg / 3 ml <br> <br>";
+
+  // .........
+  let tpaper = document.getElementById("hasilAwalCor");
+  tpaper.innerHTML = "";
+  let paraf = document.createElement("p");
+
+  paraf.innerHTML =
+    " Dosis diminta (" +
+    diminta +
+    ")" +
+    " mg * " +
+    " Waktu (" +
+    waktu +
+    ")" +
+    " menit" +
+    " * " +
+    " habis dalam " +
+    "(" +
+    totalWaktu +
+    ")" +
+    " Jam" +
+    " ➡️ Hasil = " +
+    totalDosisCordaron +
+    " ml (Total dosis dalam) " +
+    totalWaktu +
+    " jam" +
+    " <hr> " +
+    "( " +
+    totalDosisCordaron +
+    " mg / 150 ) * 3 ➡️ " +
+    " maka hasilnya " +
+    hasilBagi.toFixed(1) +
+    " ml artinya ➡️ " +
+    hasil.vialPenuh +
+    " ampul ➡️ " +
+    hasil.sisaMl.toFixed(1) +
+    " ml" +
+    "<br> <hr>" +
+    "jika selesai tinggal ➡️ dibagi Pengencer/total jam pemberian";
+
+  if (hasil.vialPenuh >= 3) {
+    papan.appendChild(pesan);
+  } else {
+    papan.style.display = "none";
+  }
+  tpaper.appendChild(paraf);
+  info.appendChild(infoPesan);
+  //
 }
+
+function hitungPengencerCordaron(event) {
+  let inputCor = document.getElementById("pendilutCor").value;
+  let inputWak = document.getElementById("totalWaktu").value;
+
+  if (!inputCor || !inputWak === 0) {
+    alert("di isi dulu ya nurse,.✌️");
+    return;
+  }
+  const hasilPengcerCor = inputCor / inputWak;
+
+  let pPengencer = document.getElementById("hasilPengencerCor");
+  pPengencer.innerHTML = "";
+
+  hasilPengencerMess = document.createElement("p");
+  hasilPengencerMess.innerHTML =
+    "Hasil " + hasilPengcerCor.toFixed(1) + " ml/jam";
+
+  pPengencer.appendChild(hasilPengencerMess);
+}
+
+// punya Cordaron ⭐
+
+// start filter in dashboard
+/*
+const pencariaanKu = document.getElementById("searchInput");
+const menuItem = document.querySelectorAll(".menu-item");
+
+// contoh sederhana
+// button.addEventListener("click", function () {
+//   alert("Tombol ditekan!");
+// });
+// function() itu adalah: “Perintah yang disimpan untuk dijalankan NANTI saat sesuatu terjadi”
+// end contoh sederhana
+pencariaanKu.addEventListener("keyup", function () {
+  let value = this.value.toLowerCase();
+
+  // “Ambil setiap menu, lalu baca tulisannya”
+  // “Ambil tulisan dari menu, lalu ubah jadi huruf kecil semua”
+  menuItem.forEach((item) => {
+    let text = item.textContent.toLocaleLowerCase();
+
+    if (text.includes(value)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
+*/
+
+const items = document.querySelectorAll(".item");
+const buttons = document.querySelectorAll(".category button");
+// buat function
+/*
+🧒 Analogi:
+Kayak kamu bilang:
+“Kasih aku 2 hal:
+nama kategori
+benda yang diklik”
+👉 el = benda itu
+*/
+function tombolFilterKu(mainBtnKategori, addStyleListElemenKu) {
+  // pindahkan warna aktif
+  // console.log("kategori:", mainBtnKategori);
+  // console.log("kategori:", addStyleListElemenKu);
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  addStyleListElemenKu.classList.add("active");
+  // console.log(buttons);
+
+  // filter item
+  items.forEach((btnItem) => {
+    let daftarDataItem = btnItem.getAttribute("data-kategori");
+    // console.log(daftarDataItem);
+    //.getAttribute(...) fungsi untuk mengambil isi atribut
+
+    if (mainBtnKategori === "all" || daftarDataItem === mainBtnKategori) {
+      btnItem.style.display = "block";
+    } else {
+      btnItem.style.display = "none";
+    }
+  });
+}
+// end filter
+
+//start  humbuerger
+/*
+👉
+“Kita ambil semua .nav-link dan simpan ke dalam btnAllLink”
+👉
+“Kemudian kita ambil satu per satu tombol dari btnAllLink, dan kita beri nama btnKlikChoiseLink”
+👉
+“Setiap tombol itu kita pasang event: jika tombol tersebut diklik…”
+👉
+“Maka jalankan perintah:
+hapus class active dari semua tombol
+lalu tambahkan class active ke tombol yang diklik”
+
+*/
+// btnAllLink = sekumpulan tombol
+const btnAllLink = document.querySelectorAll(".nav-link");
+// btnKlikChoiseLink = 1 tombol
+btnAllLink.forEach((btnKlikChoiseLink) => {
+  btnKlikChoiseLink.addEventListener("click", function (event) {
+    btnAllLink.forEach((btnHapusLink) =>
+      btnHapusLink.classList.remove("active"),
+    );
+    this.classList.add("active");
+  });
+});

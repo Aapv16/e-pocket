@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <!-- end style css -->
     <!--Bootsrap-->
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
-    />
+    /> -->
     <title>Drugs Calculation</title>
   </head>
 
@@ -29,15 +29,15 @@
             class="accordion-button"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapseLido"
+            data-bs-target="#collapseCordaron"
             aria-expanded="true"
-            aria-controls="collapseLido"
+            aria-controls="collapseCordaron"
           >
-            Lidocaine
+            Amiodaron
           </button>
         </h2>
         <div
-          id="collapseLido"
+          id="collapseCordaron"
           class="accordion-collapse collapse"
           data-bs-parent="#accordionExample"
         >
@@ -45,7 +45,7 @@
             <!-- my modal contoh -->
             <div
               class="modal fade"
-              id="exampleLidocain"
+              id="exampleCordaron"
               tabindex="-1"
               aria-labelledby="exampleModalLabel"
               aria-hidden="true"
@@ -55,7 +55,9 @@
               >
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">Lidocain</h6>
+                    <h6 class="modal-title" id="exampleModalLabel">
+                      Amiodaron
+                    </h6>
                     <button
                       type="button"
                       class="btn-close"
@@ -146,7 +148,7 @@
           <!-- form input -->
 
           <form
-            onsubmit="return hitungLidocaine(event);"
+            onsubmit="return hitungCordaron(event);"
             class="border rounded mb-3 mx-4"
           >
             <div class="text-end">
@@ -154,72 +156,73 @@
                 type="button"
                 class="my-btn btn btn-warning opacity-75"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleLidocain"
+                data-bs-target="#exampleCordaron"
               >
                 Lihat Contoh
               </btn>
             </div>
 
             <div class="mb-3">
-              <label for="diminta" class="form-label">Dosis yang diminta</label>
+              <label for="dimintaCordaron" class="form-label"
+                >Dosis yang diminta</label
+              >
               <br />
               <input
                 type="number"
-                id="dimintalidocaine"
-                name="sediaan"
+                id="dimintaCordaron"
+                name="permintaan"
                 placeholder="mg"
                 class="form-control"
                 required
               />
             </div>
             <div class="mb-3">
-              <label for="sedian" class="form-label"
+              <label for="sediaanCordaron" class="form-label"
                 >Dosis sediaan dalam 1 ampul</label
               >
               <br />
               <input
                 type="text"
-                value="40 mg"
+                value="150 mg"
                 disabled
-                id="sediaanlidocaine"
+                id="sediaanCordaron"
                 name="sediaan"
-                placeholder="40 mg"
                 class="form-control"
                 required
               />
             </div>
-            <div class="mb-3">
-              <label for="dilutan" class="form-label">
+            <!-- <div class="mb-3">
+              <label for="dilutanCordaron" class="form-label">
                 Berapa jumlah ampul ?</label
               >
               <input
                 type="number"
-                id="dilutlidocaine"
+                id="dilutCordaron"
                 class="form-control"
                 name="pendilut"
                 placeholder="ampul"
                 required
               />
-            </div>
-            <!-- <div class="mb-3">
-              <label for="berat_badan" class="form-label"
-                >Berat badan (kg)</label
+            </div> -->
+            <div class="mb-3">
+              <label for="totalJamPermintaan" class="form-label"
+                >Habis dalam berapa jam ?</label
               >
               <input
                 type="number"
-                id="berat_badan"
+                id="totalJamPermintaan"
                 class="form-control"
-                name="berat_badan"
+                name="totalJamPermintaan"
                 required
               />
-            </div> -->
+            </div>
             <div class="mb-3">
               <label for="waktu" class="form-label">Waktu</label>
               <input
                 type="text"
                 value="60 menit"
                 disabled
-                id="waktuLidocaine"
+                id="waktuCordaron"
                 class="form-control"
                 name="waktu"
                 placeholder="60 menit"
@@ -228,7 +231,7 @@
             </div>
 
             <button
-              onclick="hitungLidocaine(event)"
+              onclick="hitungCordaron(event)"
               data-bs-toggle="modal"
               class="submit mt-3"
               type="submit"
@@ -241,7 +244,7 @@
           <!-- Modal hasil -->
           <div
             class="modal fade"
-            id="exampleModalHasilLidocaine"
+            id="exampleModalHasilCordaron"
             aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel"
             tabindex="-1"
@@ -260,15 +263,21 @@
                   ></button>
                 </div>
                 <div class="modal-body">
+                  <p id="infoKu" class="my-font opacity-75 border-bottom"></p>
                   <p class="px-1 my-font mx-auto" id="hasilAwal"></p>
+                  <h2
+                    id="papan"
+                    class="alert alert alert-warning mx-auto text-center my-font"
+                    role="alert"
+                  ></h2>
                 </div>
                 <div class="modal-footer">
                   <button
                     class="btn btn-primary"
-                    data-bs-target="#exampleModalToggle2"
+                    data-bs-target="#exampleModalToggleCor"
                     data-bs-toggle="modal"
                   >
-                    Lihat titrasi ➡️
+                    Hitung pengencer ➡️
                   </button>
                 </div>
               </div>
@@ -276,17 +285,18 @@
           </div>
           <div
             class="modal fade"
-            id="exampleModalToggle2"
+            id="exampleModalToggleCor"
             aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel2"
+            aria-labelledby="exampleModalToggleLabelCor"
             tabindex="-1"
           >
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
-                    Table Dosis
-                  </h1>
+                  <h1
+                    class="modal-title fs-5"
+                    id="exampleModalToggleLabelCor"
+                  ></h1>
                   <button
                     type="button"
                     class="btn-close"
@@ -297,18 +307,56 @@
                 <div class="modal-body">
                   <table>
                     <!-- table head -->
-                    <tr>
+                    <!-- <tr>
                       <th>Dosis diminta</th>
                       <th>Hasil</th>
-                    </tr>
+                    </tr> -->
                     <!-- table head -->
-                    <tbody class="px-5" id="hasilTable"></tbody>
+                    <tbody class="px-5" id="hasilTableCordaron">
+                      <form onsubmit="return hitungPengencerCordaron(event);">
+                        <!-- Q1 -->
+                        <label for="pendilutCor" class="form-label my-font"
+                          >Pendilut ?</label
+                        >
+                        <input
+                          type="number"
+                          id="pendilutCor"
+                          class="form-control"
+                          name="pendilutCor"
+                          required
+                        />
+                        <!-- Q1 -->
+                        <label for="totalWaktu" class="form-label my-font"
+                          >Berapa jam ?</label
+                        >
+                        <input
+                          type="number"
+                          id="totalWaktu"
+                          class="form-control"
+                          name="totalWaktu"
+                          required
+                        />
+                        <div>
+                          <p
+                            type="submit"
+                            onclick="hitungPengencerCordaron(event)"
+                            class="submit btn btn-success mt-3"
+                          >
+                            Hitung
+                          </p>
+                        </div>
+                        <h1
+                          class="text-center mx-3 align-items-center mx-auto border-bottom rounded"
+                          id="hasilPengencerCor"
+                        ></h1>
+                      </form>
+                    </tbody>
                   </table>
                 </div>
                 <div class="modal-footer">
                   <button
                     class="btn btn-primary"
-                    data-bs-target="#exampleModalHasilLidocaine"
+                    data-bs-target="#exampleModalHasilCordaron"
                     data-bs-toggle="modal"
                   >
                     Back to first
@@ -326,11 +374,11 @@
 
     <!-- home page -->
 
-    <!-- <script
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
-    ></script> -->
+    ></script>
   </body>
   <!-- my druga calcution-->
 

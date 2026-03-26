@@ -42,3 +42,129 @@
     </div>
   </div>
 </div>
+
+<!-- dashboar -->
+<body>
+  <div class="navbar">
+    <div class="" style="margin-left: 1rem">
+      <h5>E-pocket</h5>
+    </div>
+
+    <!-- start humburger -->
+    <button
+      class="navbar-toggler shadow-none border-0"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+      aria-label="Toggle navigation"
+    >
+      <span
+        class="navbar-toggler-icon border border-warning-subtle border-2 rounded"
+      ></span>
+    </button>
+    <!-- end humburger -->
+
+    <!-- start modal offcanvas humburger -->
+    <div
+      class="offcanvas offcanvas-start"
+      style="width: 70%"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h6
+          class="offcanvas-title"
+          id="offcanvasNavbarLabel"
+          style="font-size: 1rem"
+        >
+          E-pocket
+        </h6>
+        <button
+          type="button"
+          class="btn-close bg-danger"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body mx-start">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-2">
+          <li class="nav-item">
+            <a
+              class="nav-link active mt-3 d-flex align-items-center"
+              aria-current="page"
+              href="#"
+              ><i class="bi bi-house m-3"></i> Dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mt-3 d-flex align-items-center"
+              aria-current="page"
+              href="#about"
+              ><i class="bi bi-info-circle m-3"></i>About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mt-3 d-flex align-items-center"
+              aria-current="page"
+              href="#skill"
+              ><i class="bi bi-backpack2 m-3"></i>Skills</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mt-3 d-flex align-items-center"
+              aria-current="page"
+              href="#contact"
+              ><i class="bi bi-person-lines-fill m-3"></i>Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end modal offcanvas humburger -->
+  </div>
+  <div class="container">
+    <!-- bannerku -->
+    <div class="banner">
+      <img src="https://picsum.photos/400/200" alt="" />
+    </div>
+    <!-- kategori item ku -->
+    <div class="category">
+      <!-- “Saat diklik → jalankan fungsi filterMenu ➡️ dengan info: kategori = makanan dan tombol yang diklik = ini” -->
+      <button onclick="tombolFilterKu('all', this)" class="active">
+        semua item
+      </button>
+      <button onclick="tombolFilterKu('obat', this)">Obat</button>
+      <button onclick="tombolFilterKu('ekg', this)">intepretasi EKG</button>
+      <button onclick="tombolFilterKu('agd', this)">Intepretasi AGD</button>
+      <button onclick="tombolFilterKu('btcls', this)">BTCL</button>
+      <button onclick="tombolFilterKu('acls', this)">ACLS</button>
+    </div>
+
+    <!-- kategori item ku -->
+
+    <!-- GRID ITEM ku -->
+    <div class="grid">
+      <div class="item" data-kategori="obat">⚡</div>
+      <div class="item" data-kategori="obat">🔽</div>
+
+      <div class="item" data-kategori="ekg">🚀</div>
+      <div class="item" data-kategori="ekg">⭐</div>
+
+      <div class="item" data-kategori="agd">😇</div>
+      <div class="item" data-kategori="agd">🎬</div>
+
+      <div class="item" data-kategori="btcls">😇</div>
+      <div class="item" data-kategori="btcls">🎬</div>
+
+      <div class="item" data-kategori="acls">😇</div>
+    </div>
+    <!-- GRID ITEM ku -->
+  </div>
+</body>
+<!-- dashboar -->
+b
